@@ -1,0 +1,4 @@
+<h1 style="margin-left: 5px;">İş Listesi</h1>
+<div style="margin: 5px;" class="card bg-primary text-white" *ngFor="let item of elems; let i = index">
+    <div class="card-body"><a style="color: white;" href="/isdetay/{{ i }}"><h3>≈{{item?.description}}</h3></a></div>
+  </div>
