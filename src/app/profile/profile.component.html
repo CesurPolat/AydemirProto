@@ -4,5 +4,11 @@
       <h4 class="card-title">John Doe</h4>
       <p class="card-text">Some example text.</p>
       <button href="#" (click)="logout()" class="btn btn-primary">Log out</button>
+       <form #changePasswordForm="ngForm" (ngSubmit)="changePassword(changePasswordForm.value)">
+         <input type="email" ngModel name="email" placeholder="Email">
+         <input type="password" name="oldPassword" ngModel placeholder="Old Password">
+         <input type="password" name="newPassword" ngModel placeholder="New Password">
+          <input type="submit">
+        </form>
     </div>
   </div>

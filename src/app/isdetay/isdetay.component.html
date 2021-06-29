@@ -1,1 +1,17 @@
 <h1>{{elems?.id}} - {{elems?.description}} - {{elems?.createdDate}} - {{creatorName}}</h1>
+<br>
+<h1>Customer Name: {{elems?.customer.fullName}} Phone Number: {{elems?.customer.phone}}<br> Customer Address:
+    {{elems?.customer.address}}</h1>
+<br>
+<h1>{{elems?.faultType.name}} - {{elems?.faultRequest.name}}</h1>
+<h1>Map: {{elems?.googleMaps}}</h1>
+
+<form #editIs="ngForm" (ngSubmit)="Test(editIs.value)">
+    <input type="text" ngModel name="resimUrl" placeholder="Resim Url">
+    <select name="status" ngModel class="custom-select">
+        <option *ngFor="let item of statusElems" value="{{item?.id}}">{{item?.name}}</option>
+    </select>
+    <input type="text" placeholder="Açıklama" name="description" ngModel><br>
+    <input type="submit">
+</form>
+<img [src]="formElems?.resimUrl" >

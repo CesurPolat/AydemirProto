@@ -1,4 +1,4 @@
-<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" action="/action_page.php" style="margin: 20px;" class="was-validated">
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" style="margin: 20px;" class="was-validated">
     <div class="form-group">
       <label for="uname">Username:</label>
       <input type="email" class="form-control" id="uname" placeholder="Enter username" ngModel name="email" required>
@@ -7,10 +7,16 @@
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" ngModel name="password" required>
+      <input type="password"  class="form-control" id="pwd" placeholder="Enter password" ngModel name="password" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="" type="submit" class="btn btn-primary">Submit</button><br><br>
+    <div class="alert alert-danger" *ngIf="loginError">
+      <strong>Hatalı!</strong> Yeniden girmeyi deneyin!.
+    </div>
+    <div class="alert alert-success" *ngIf="loginSuccess">
+      <strong>Başarılı!</strong> Tebrikler.
+    </div>
   </form>

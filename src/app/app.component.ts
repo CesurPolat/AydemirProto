@@ -18,6 +18,9 @@ export class AppComponent {
     this.isToken = localStorage.getItem('token');
   }
 
-
+  logout(){
+    localStorage.removeItem("token");
+    window.location.pathname="";
+  }
   
 }

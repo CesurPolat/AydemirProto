@@ -11,8 +11,10 @@ import { HttpHeaders } from '@angular/common/http';
 export class IsdetayComponent implements OnInit {
 
   elems:any = [];
+  statusElems:any = [];
   id:any = 0;
   creatorName:any="";
+  formElems:any =[];
   constructor(private http:HttpClient,private router:ActivatedRoute) {
     router.params.subscribe((data:any)=>{this.id=data.id;})
     //https://api.aydemir.ndepo.com/api/WorkOrders/
@@ -25,6 +27,9 @@ export class IsdetayComponent implements OnInit {
     this.elems = data.data[this.id];
     this.creatorName = data.data[this.id].relationUser.firstName + " " + data.data[this.id].relationUser.lastName;
   })
+    this.http.get('https://api.aydemir.ndepo.com/api/Status/getusertatuses', header).subscribe((data:any)=>{
+      this.statusElems = data.data;
+    })
     
    }
 
@@ -34,6 +39,12 @@ export class IsdetayComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  Test(data:any){
+    console.log(data);
+    this.formElems = data;
+
   }
 
 }
