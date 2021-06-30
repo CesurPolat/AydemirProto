@@ -11,6 +11,8 @@ import { ListeComponent } from './liste/liste.component';
 import { IsdetayComponent } from './isdetay/isdetay.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
