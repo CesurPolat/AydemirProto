@@ -12,27 +12,59 @@ export class LoginComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+
+
+
   ngOnInit(): void {
+    this.http.get('https://jsonplaceholder.typicode.com/photos').subscribe((resp:any)=>{
+      console.log('111 - fotolar' , resp)
+    })
+
+    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe((resp:any)=>{
+      console.log('222 - users' , resp)
+    })
+
+    this.http.get('https://api.aydemir.ndepo.com/api/WorkOrders/getall').subscribe((resp:any)=>{
+      console.log('333 - işler' , resp)
+    })
   }
+
+
+
+
+
+
+
+
+
 
   loginError: any = false;
   loginSuccess: any = false;
 
+
+
+
+
+
   onSubmit(data: any) {
     console.log(data);
-    this.http.post<any>('https://api.aydemir.ndepo.com/api/Auth/login', data).subscribe((resp: any) => { 
+    this.http.post<any>('https://api.aydemir.ndepo.com/api/Auth/login', data).subscribe((resp: any) => {
 
       console.log("Login", resp);
-       if (resp?.success) {
-          this.loginSuccess = true; 
-          this.loginError = false; 
-          localStorage.setItem('token', resp.data.token); 
-          window.location.pathname = "" } },
+      if (resp?.success) {
+        this.loginSuccess = true;
+        this.loginError = false;
+        localStorage.setItem('token', resp.data.token);
+        window.location.pathname = ""
+      }
+    },
 
 
       (error: any) => {
         this.loginError = true;
       })
   }
+
+
 
 }
